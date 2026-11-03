@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepShield-X — Intelligence Beyond Appearance | AI Forensics Platform</title>
+  
+  <!-- Google Fonts: Manrope (Headings/UI) & JetBrains Mono (Technical/Data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Dark Surface Mesh -->
+  <div class="ambient-surface"></div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- =========================================================================
+       VIEW 1: LANDING PAGE ("Intelligence Beyond Appearance")
+       ========================================================================= -->
+  <div id="landingView" class="app-view active-view">
+    <!-- Landing Navigation Bar -->
+    <nav class="landing-nav">
+      <div class="landing-nav-inner">
+        <a class="brand-container" onclick="switchToLanding()">
+          <div class="brand-icon-shield">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="brand-meta">
+            <span class="brand-title">DEEPSHIELD-X</span>
+            <span class="brand-subtitle">Forensic Intelligence</span>
+          </div>
+        </a>
+
+        <div class="landing-nav-links">
+          <a href="#overview-section" class="landing-nav-link" onclick="scrollToSection('landingHero')">Overview</a>
+          <a href="#engine-section" class="landing-nav-link" onclick="openDashboardTab('scanner')">Detection Engine</a>
+          <a href="#technology-section" class="landing-nav-link" onclick="openDashboardTab('model')">Technology</a>
+          <a href="#research-section" class="landing-nav-link" onclick="openDashboardTab('model')">Research</a>
+          <a href="#docs-section" class="landing-nav-link" onclick="openDashboardTab('docs')">Documentation</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="btn btn-primary" onclick="switchToDashboard('overview')">
+            <span>Launch Workspace</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="landing-hero" id="landingHero">
+      <div class="hero-editorial-pill">
+        <span>ENTERPRISE DIGITAL FORENSICS</span>
+        <span>•</span>
+        <span>IIIT BANGALORE DEEPFAKE RESEARCH</span>
+      </div>
+
+      <h1 class="hero-main-title">
+        Intelligence Beyond <span class="hero-highlight">Appearance</span>.
+      </h1>
+
+      <p class="hero-lead-text">
+        Enterprise-grade synthetic media forensics powered by dual-stream spatial texture and frequency-domain neural analysis. Unmask subtle diffusion boundary blending and GAN spectral artifacts with mathematical certainty.
+      </p>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 3.5rem;">
+        <button class="btn btn-primary" onclick="switchToDashboard('scanner')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="m10 15 5-3-5-3v6z"/>
+          </svg>
+          <span>Initiate Forensic Scan</span>
+        </button>
+        <button class="btn btn-secondary" onclick="switchToDashboard('batch')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          <span>Batch Evaluation</span>
+        </button>
+      </div>
+
+      <!-- Hero Visual with Animated Scanning Sweep -->
+      <div class="hero-visual-frame">
+        <div class="hero-scanner-preview">
+          <div class="scanning-line-sweep"></div>
+          <div style="display: flex; align-items: center; gap: 2rem; z-index: 2;">
+            <div style="text-align: center;">
+              <img src="hackathon_dataset/train/fake/fake_face_001.jpg" alt="Forensic Facial Scan" style="width: 140px; height: 140px; border-radius: 8px; border: 1px solid var(--border-medium); object-fit: cover; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+              <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--highlight-champagne); margin-top: 0.5rem;">
+                Target: Face_Crop_224
+              </div>
+            </div>
+            <div style="text-align: left; max-width: 380px;">
+              <div class="status-badge alert" style="margin-bottom: 0.5rem;">
+                <span class="status-dot"></span>
+                <span>Anomalous Spectrum Flagged</span>
+              </div>
+              <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.4rem;">Cross-Modality Discrepancy Detected</h3>
+              <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+                High-frequency boundary discontinuity identified along the mandibular border. Asymmetric specular reflections confirmed via 2D Fast Fourier Transform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Project Capabilities -->
+      <div style="text-align: left; margin-bottom: 1.5rem;">
+        <span class="section-subhead">Verified Forensic Core Capabilities</span>
+      </div>
+
+      <div class="hero-capabilities-grid">
+        <div class="capability-card">
+          <div class="cap-number">01 // DOMAIN</div>
+          <h3 class="cap-title">Spatial Analysis</h3>
+          <p class="cap-desc">ImageNet-pretrained convolutional feature extraction exposing microscopic synthesis seams, warping artifacts, and epidermal texture inconsistency.</p>
+        </div>
+
+        <div class="capability-card">
+          <div class="cap-number">02 // SPECTRAL</div>
+          <h3 class="cap-title">Frequency Analysis</h3>
+          <p class="cap-desc">2D Fast Fourier Transform (FFT) and high-pass residual filtering isolating generator upsampling checkerboard anomalies in the log-magnitude spectrum.</p>
+        </div>
+
+        <div class="capability-card">
+          <div class="cap-number">03 // INTERPRETABILITY</div>
+          <h3 class="cap-title">Explainable AI</h3>
+          <p class="cap-desc">Gradient-weighted Class Activation Mapping (Grad-CAM) isolating exact facial coordinates influencing manipulation predictions for legal audits.</p>
+        </div>
+
+        <div class="capability-card">
+          <div class="cap-number">04 // VERIFICATION</div>
+          <h3 class="cap-title">Forensic Reporting</h3>
+          <p class="cap-desc">Cryptographically stamped investigation dossiers providing chain-of-custody metadata, confidence scores, and forensic disclaimers.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Landing Footer -->
+    <footer style="border-top: 1px solid var(--border-subtle); padding: 2.5rem 2rem; margin-top: 4rem; background: rgba(38, 30, 35, 0.6);">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <span style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">DEEPSHIELD-X</span>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">Dual-Stream Digital Authenticity Architecture • IIIT Bangalore Research</p>
+        </div>
+        <div style="display: flex; gap: 1.5rem; font-size: 0.82rem;">
+          <a href="TECHNICAL_REPORT.md" target="_blank" style="color: var(--text-secondary); text-decoration: none;">Technical Report</a>
+          <a href="evaluation_metric.md" target="_blank" style="color: var(--text-secondary); text-decoration: none;">Evaluation Rubric</a>
+          <a href="sample_submission.csv" target="_blank" style="color: var(--text-secondary); text-decoration: none;">Sample Format</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- =========================================================================
+       VIEW 2: ENTERPRISE APPLICATION DASHBOARD WORKSPACE
+       ========================================================================= -->
+  <div id="dashboardView" class="app-view">
+    <div class="dashboard-layout">
+      
+      <!-- Collapsible Left Sidebar -->
+      <aside class="dashboard-sidebar" id="appSidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+          <div class="sidebar-brand-group">
+            <div class="brand-icon-shield" style="width: 32px; height: 32px; border-radius: 7px; cursor: pointer;" onclick="switchToLanding()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="sidebar-brand-text">
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary); display: block; line-height: 1.2;">DEEPSHIELD-X</span>
+              <span style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--accent-interactive);">ENTERPRISE SAAS</span>
+            </div>
+          </div>
+          <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Toggle Navigation Width">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Sidebar Navigation List -->
+        <ul class="sidebar-nav-list">
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn active" data-tab="overview">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <span class="nav-text-label">Overview</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="scanner">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="22" y1="12" x2="18" y2="12"></line>
+                  <line x1="6" y1="12" x2="2" y2="12"></line>
+                  <line x1="12" y1="6" x2="12" y2="2"></line>
+                  <line x1="12" y1="22" x2="12" y2="18"></line>
+                </svg>
+              </div>
+              <span class="nav-text-label">Image Scanner</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="batch">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <span class="nav-text-label">Batch Analysis</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="history">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <span class="nav-text-label">Scan History</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="model">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <span class="nav-text-label">Model Intelligence</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="reports">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <path d="m9 15 2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="nav-text-label">Forensic Reports</span>
+            </button>
+          </li>
+
+          <li class="sidebar-nav-item">
+            <button class="sidebar-nav-btn" data-tab="docs">
+              <div class="nav-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+              </div>
+              <span class="nav-text-label">Documentation</span>
+            </button>
+          </li>
+        </ul>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <div class="sidebar-footer-info">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-weight: 600; color: var(--text-primary);">DeepShieldXNet</span>
+              <span class="mono-data" style="color: var(--highlight-champagne); font-size: 0.68rem;">v2.4-dual</span>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.65rem;">ResNet-50 + 2D-FFT SRM</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Pane -->
+      <main class="dashboard-main-pane">
+        <!-- Top Navigation Bar -->
+        <header class="dashboard-topbar">
+          <div class="topbar-left">
+            <h1 class="current-view-title" id="currentViewTitle">Workspace Overview</h1>
+          </div>
+
+          <div class="topbar-right">
+            <!-- System Status Indicator with Explicit Status -->
+            <div class="system-status-indicator" id="systemStatusPill">
+              <span class="status-dot-active"></span>
+              <span id="systemStatusLabel">Dual-Stream Engine Active</span>
+            </div>
+
+            <button class="btn btn-outline btn-sm" onclick="switchToLanding()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <span>Landing Page</span>
+            </button>
+
+            <button class="btn btn-primary btn-sm" onclick="openDashboardTab('scanner')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>New Scan</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Dynamic Content Panes -->
+        <div class="dashboard-content-scroll">
+
+          <!-- ===============================================================
+               TAB 1: WORKSPACE OVERVIEW
+               =============================================================== -->
+          <div id="overviewTab" class="tab-pane active">
+            <div class="dashboard-welcome-banner">
+              <h2>Welcome to DeepShield-X</h2>
+              <p>Your digital authenticity intelligence workspace.</p>
+            </div>
+
+            <!-- Real Platform Metric Cards -->
+            <div class="metrics-row">
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Total Images Analyzed</span>
+                  <div class="metric-icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="metric-value champagne" id="metricTotalImages">24</div>
+                <div class="metric-caption">Processed in current session</div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Authentic Images Detected</span>
+                  <div class="metric-icon-wrap" style="color: #8AE3AF;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="metric-value" style="color: #8AE3AF;" id="metricAuthenticImages">11</div>
+                <div class="metric-caption">Passed high-frequency verification</div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Manipulations Detected</span>
+                  <div class="metric-icon-wrap" style="color: #FFA2A2;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                      <line x1="12" y1="9" x2="12" y2="13"/>
+                      <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="metric-value" style="color: #FFA2A2;" id="metricManipulations">13</div>
+                <div class="metric-caption">Flagged for synthesis seams / FFT peaks</div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-header">
+                  <span class="metric-label">Avg Inference Latency</span>
+                  <div class="metric-icon-wrap">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
+                </div>
+                <div class="metric-value champagne" id="metricAvgLatency">2.08 ms</div>
+                <div class="metric-caption">Dual-stream pipeline execution</div>
+              </div>
+            </div>
+
+            <!-- Overview Grid: Recent Scans + Quick Intelligence Summary -->
+            <div class="overview-grid">
+              <!-- Left: Recent Scans -->
+              <div class="card-panel">
+                <div class="panel-header-bar">
+                  <span class="panel-header-title">Recent Forensic Inspections</span>
+                  <button class="btn btn-outline btn-sm" onclick="openDashboardTab('history')">View Full Log</button>
+                </div>
+                <div class="table-responsive-wrapper" style="border: none;">
+                  <table class="forensic-data-table">
+                    <thead>
+                      <tr>
+                        <th>Scan ID</th>
+                        <th>Classification</th>
+                        <th>Confidence</th>
+                        <th>Latency</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="overviewRecentScansBody">
+                      <!-- Dynamically rendered -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Right: Detection Distribution & Architecture Quick Status -->
+              <div class="card-panel">
+                <div class="panel-header-bar">
+                  <span class="panel-header-title">Engine Distribution</span>
+                  <span class="status-badge verified">Verified Active</span>
+                </div>
+                <div class="panel-body">
+                  <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem;">
+                      <span>Synthetic Media Identified</span>
+                      <span class="mono-data" style="color: #FFA2A2; font-weight: 700;">54.2%</span>
+                    </div>
+                    <div class="progress-track-custom">
+                      <div class="progress-fill-custom" style="width: 54.2%; background: var(--semantic-alert);"></div>
+                    </div>
+                  </div>
+
+                  <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.35rem;">
+                      <span>Authentic Biometric Faces</span>
+                      <span class="mono-data" style="color: #8AE3AF; font-weight: 700;">45.8%</span>
+                    </div>
+                    <div class="progress-track-custom">
+                      <div class="progress-fill-custom" style="width: 45.8%; background: var(--semantic-success);"></div>
+                    </div>
+                  </div>
+
+                  <div style="background: rgba(62, 50, 57, 0.5); border-radius: 8px; border: 1px solid var(--border-subtle); padding: 1rem; margin-top: 1.5rem;">
+                    <div style="font-size: 0.76rem; font-weight: 600; text-transform: uppercase; color: var(--highlight-champagne); margin-bottom: 0.35rem;">
+                      Runtime Model Pipeline
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+                      Dual-Stream ResNet-50 spatial extractor with SRM high-pass residual filter &amp; log-magnitude Fourier branch with cross-modality gating.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 2: ADVANCED FORENSIC IMAGE SCANNER
+               =============================================================== -->
+          <div id="scannerTab" class="tab-pane">
+            <div class="scanner-workspace-grid">
+              
+              <!-- Left Column: Upload & 9-Step Pipeline Stepper -->
+              <div>
+                <!-- Upload Dropzone Card -->
+                <div class="scanner-upload-card">
+                  <div class="dropzone-area" id="scannerDropzone">
+                    <input type="file" id="scannerFileInput" accept="image/jpeg,image/png,image/webp" style="display: none;">
+                    <div class="drop-icon">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                    </div>
+                    <div class="drop-title">Select or Drag Image to Analyze</div>
+                    <div class="drop-subtitle">Pre-aligned 224×224 face crops recommended for maximum model precision</div>
+                    <button class="btn btn-secondary btn-sm" type="button">Browse Local Files</button>
+                  </div>
+
+                  <div class="upload-spec-meta">
+                    <span>FORMATS: JPEG, PNG, WEBP</span>
+                    <span>MAX FILE SIZE: 15 MB</span>
+                  </div>
+
+                  <!-- Benchmark Sample Selector -->
+                  <div class="benchmark-samples-group">
+                    <div class="section-subhead">Or Select Verified Hackathon Samples:</div>
+                    <div class="benchmark-chips-grid">
+                      <button class="benchmark-chip-btn active" data-sample-idx="0">
+                        <span class="chip-type-tag real">Real</span>
+                        <span>Subject A (Natural)</span>
+                      </button>
+                      <button class="benchmark-chip-btn" data-sample-idx="1">
+                        <span class="chip-type-tag real">Real</span>
+                        <span>Subject B (High ISO)</span>
+                      </button>
+                      <button class="benchmark-chip-btn" data-sample-idx="2">
+                        <span class="chip-type-tag fake">Fake</span>
+                        <span>Diffusion Inpaint</span>
+                      </button>
+                      <button class="benchmark-chip-btn" data-sample-idx="3">
+                        <span class="chip-type-tag fake">Fake</span>
+                        <span>GAN FaceSwap</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 9-Step Processing Stepper -->
+                  <div class="scan-pipeline-stepper">
+                    <div class="stepper-header">
+                      <span class="stepper-title">9-Step Forensic Workflow</span>
+                      <span id="pipelineStatusTag" class="status-badge verified">Verified Active</span>
+                    </div>
+
+                    <div class="pipeline-steps-list">
+                      <div class="pipeline-step-item completed" id="step1">
+                        <div class="step-indicator">1</div>
+                        <span>Image Upload &amp; Header Reading</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step2">
+                        <div class="step-indicator">2</div>
+                        <span>File Integrity &amp; Dimensional Validation</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step3">
+                        <div class="step-indicator">3</div>
+                        <span>Facial Landmark &amp; Alignment Check</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step4">
+                        <div class="step-indicator">4</div>
+                        <span>Spatial Feature Extraction (Backbone)</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step5">
+                        <div class="step-indicator">5</div>
+                        <span>Frequency-Domain 2D FFT Analysis</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step6">
+                        <div class="step-indicator">6</div>
+                        <span>Dual-Stream Cross-Attention Gating</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step7">
+                        <div class="step-indicator">7</div>
+                        <span>Prediction &amp; Confidence Generation</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step8">
+                        <div class="step-indicator">8</div>
+                        <span>Grad-CAM Explainability Heatmap</span>
+                      </div>
+                      <div class="pipeline-step-item completed" id="step9">
+                        <div class="step-indicator">9</div>
+                        <span>Forensic Dossier Report Assembly</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Visualizer Stage & Live Verdict -->
+              <div>
+                <div class="scanner-results-card">
+                  
+                  <!-- Main Image Preview Stage with Laser Sweep -->
+                  <div class="image-preview-stage scanning-active" id="previewStage">
+                    <img id="scannerDisplayImg" class="preview-display-img" alt="Facial Media">
+                    <div class="scan-crosshair-overlay"></div>
+                    <div class="active-scan-bar"></div>
+                  </div>
+
+                  <!-- Verdict Banner -->
+                  <div class="verdict-banner-container verdict-fake" id="verdictBanner">
+                    <div class="verdict-badge-heading">
+                      <span class="status-badge alert" id="verdictBadgePill">
+                        <span class="status-dot"></span>
+                        <span id="verdictBadgeText">SYNTHETIC MANIPULATION CONFIRMED</span>
+                      </span>
+                      <span class="mono-data" id="verdictLabelTag" style="font-size: 0.78rem; font-weight: 700;">LABEL = 1</span>
+                    </div>
+
+                    <div class="verdict-text-lead" id="verdictLeadText">Deepfake Media Detected</div>
+
+                    <!-- Confidence Progress Bar -->
+                    <div class="confidence-score-block">
+                      <div class="confidence-label-row">
+                        <span>P(Fake) Confidence Score:</span>
+                        <span id="verdictConfidenceScore" style="color: var(--highlight-champagne); font-weight: 700;">94.8% (p=0.9480)</span>
+                      </div>
+                      <div class="progress-track-custom">
+                        <div class="progress-fill-custom" id="verdictProgressFill" style="width: 94.8%;"></div>
+                      </div>
+                    </div>
+
+                    <p class="verdict-observation-text" id="verdictObsText">
+                      Severe high-frequency boundary seam discovered along the mandibular perimeter. Asymmetric ocular reflection patterns confirmed via 2D Fast Fourier Transform.
+                    </p>
+                  </div>
+
+                  <!-- Forensic Metric Breakdown Tiles -->
+                  <div class="forensic-breakdown-grid">
+                    <div class="forensic-tile-item">
+                      <div class="forensic-tile-label">Spectral FFT Anomaly</div>
+                      <div class="forensic-tile-val" id="tileSpectral">88.7%</div>
+                    </div>
+                    <div class="forensic-tile-item">
+                      <div class="forensic-tile-label">Boundary Seam Discontinuity</div>
+                      <div class="forensic-tile-val" id="tileBoundary">81.3%</div>
+                    </div>
+                    <div class="forensic-tile-item">
+                      <div class="forensic-tile-label">High-Pass Residual Noise</div>
+                      <div class="forensic-tile-val" id="tileNoise">76.5%</div>
+                    </div>
+                    <div class="forensic-tile-item">
+                      <div class="forensic-tile-label">Ocular Symmetry Index</div>
+                      <div class="forensic-tile-val" id="tileSymmetry">56.4%</div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons -->
+                  <div style="display: flex; gap: 0.85rem; margin-top: 1.5rem;">
+                    <button class="btn btn-primary" style="flex: 1;" onclick="openForensicDossier()">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                      </svg>
+                      <span>Generate Forensic Dossier</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="openDashboardTab('model')">
+                      <span>View Explainability Studio</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 3: BATCH TEST EVALUATION & PREDICTIONS.CSV
+               =============================================================== -->
+          <div id="batchTab" class="tab-pane">
+            <div class="card-panel">
+              <div class="panel-header-bar">
+                <div>
+                  <span class="panel-header-title">Batch Test Processor &amp; Submission Generator</span>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+                    Evaluates UUID facial media against the dual-stream network and produces strict <code>predictions.csv</code> format.
+                  </p>
+                </div>
+                <div style="display: flex; gap: 0.65rem;">
+                  <button id="runBatchExecutionBtn" class="btn btn-primary btn-sm" onclick="triggerBatchInference()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Execute Batch Inference</span>
+                  </button>
+                  <button class="btn btn-secondary btn-sm" onclick="exportPredictionsCSV()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7 10 12 15 17 10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    <span>Download predictions.csv</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Status Banner -->
+              <div style="background: rgba(62, 50, 57, 0.45); padding: 0.85rem 1.4rem; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
+                <span id="batchProgressInfo" style="color: var(--text-secondary);">
+                  Status: Ready. 16 held-out test UUID records loaded from <code>sample_submission.csv</code>.
+                </span>
+                <span class="mono-data" style="color: var(--highlight-champagne);">Contract: image_id,Label,confidence</span>
+              </div>
+
+              <!-- Batch Table -->
+              <div class="table-responsive-wrapper" style="border: none;">
+                <table class="forensic-data-table">
+                  <thead>
+                    <tr>
+                      <th>image_id (UUID stripped of extension)</th>
+                      <th>Label (0=Real, 1=Fake)</th>
+                      <th>confidence [0.0000 - 1.0000]</th>
+                      <th>Inference Latency</th>
+                      <th>Forensic Audit State</th>
+                    </tr>
+                  </thead>
+                  <tbody id="batchPredictionTableBody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 4: SCAN HISTORY INTERFACE
+               =============================================================== -->
+          <div id="historyTab" class="tab-pane">
+            <div class="card-panel">
+              <div class="panel-header-bar">
+                <div>
+                  <span class="panel-header-title">Forensic Audit &amp; Scan History</span>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+                    Local persistent log of all verified facial evaluations, inference scores, and investigative dossiers.
+                  </p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="clearScanHistory()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                  <span>Purge Audit Log</span>
+                </button>
+              </div>
+
+              <!-- History Toolbar: Search & Filters -->
+              <div class="panel-body" style="padding-bottom: 0.5rem;">
+                <div class="history-toolbar">
+                  <div class="search-input-wrap">
+                    <span class="search-icon-pos">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </span>
+                    <input type="text" id="historySearchField" class="search-field" placeholder="Search by Scan UUID or details...">
+                  </div>
+
+                  <div class="history-filter-pills">
+                    <button class="filter-pill-btn active" data-filter="all">All Scans</button>
+                    <button class="filter-pill-btn" data-filter="fake">Manipulations Only</button>
+                    <button class="filter-pill-btn" data-filter="real">Authentic Only</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table -->
+              <div class="table-responsive-wrapper" style="border: none;">
+                <table class="forensic-data-table">
+                  <thead>
+                    <tr>
+                      <th>Scan ID / Hash</th>
+                      <th>Subject / Source</th>
+                      <th>Verdict</th>
+                      <th>Confidence Score</th>
+                      <th>Timestamp</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="historyTableBody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 5: MODEL INTELLIGENCE & EXPLAINABILITY STUDIO
+               =============================================================== -->
+          <div id="modelTab" class="tab-pane">
+            
+            <!-- Section 1: Explainability Triad (Original Crop, 2D FFT, Grad-CAM) -->
+            <div style="margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <div>
+                  <h3 style="font-size: 1.15rem; color: var(--text-primary);">Explainability &amp; Class Activation Mapping Studio</h3>
+                  <p style="font-size: 0.78rem; color: var(--text-muted);">
+                    Spatial gradient activation maps and 2D discrete Fourier log-magnitude decomposition exposing synthesis seams.
+                  </p>
+                </div>
+                <span class="status-badge neutral">Dual-Stream Interpretability</span>
+              </div>
+
+              <div class="explain-triad-grid">
+                <!-- 1. Original 224x224 Facial Crop -->
+                <div class="explain-frame-card">
+                  <div class="explain-canvas-wrapper">
+                    <canvas id="canvasOriginal" class="explain-canvas-target"></canvas>
+                  </div>
+                  <div class="explain-card-meta">
+                    <span class="explain-card-heading">1. Standard 224×224 Facial Crop</span>
+                    <span class="explain-card-detail">Spatial domain RGB input matrix with ImageNet standard normalization.</span>
+                  </div>
+                </div>
+
+                <!-- 2. High-Pass Frequency 2D FFT Spectrum -->
+                <div class="explain-frame-card">
+                  <div class="explain-canvas-wrapper">
+                    <canvas id="canvasFrequency" class="explain-canvas-target"></canvas>
+                  </div>
+                  <div class="explain-card-meta">
+                    <span class="explain-card-heading">2. Frequency 2D FFT Spectrum</span>
+                    <span class="explain-card-detail">Log-magnitude Fourier representation capturing periodic upsampling grids.</span>
+                  </div>
+                </div>
+
+                <!-- 3. Grad-CAM Activation Heatmap -->
+                <div class="explain-frame-card">
+                  <div class="explain-canvas-wrapper">
+                    <canvas id="canvasGradCAM" class="explain-canvas-target"></canvas>
+                  </div>
+                  <div class="explain-card-meta">
+                    <span class="explain-card-heading">3. Grad-CAM Activation Overlay</span>
+                    <span class="explain-card-detail">Target layer gradient activations pinpointing synthesis boundaries.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <div class="explainability-controls-bar">
+                <div class="slider-group">
+                  <label for="heatmapOpacitySlider" style="font-weight: 600; color: var(--text-primary);">Grad-CAM Blend Opacity:</label>
+                  <input type="range" id="heatmapOpacitySlider" class="range-slider-custom" min="0.1" max="1.0" step="0.05" value="0.65">
+                  <span id="opacityDisplayLabel" class="mono-data" style="color: var(--highlight-champagne); font-weight: 700;">65%</span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+                  Layer: SpatialBackbone.features.layer4[-1]
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Model Performance & Dynamics (ROC Curve & Loss Dynamics) -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+              <div class="card-panel">
+                <div class="panel-header-bar">
+                  <span class="panel-header-title">Receiver Operating Characteristic (ROC)</span>
+                  <span class="mono-data" style="color: var(--highlight-champagne); font-size: 0.78rem; font-weight: 700;">AUC = 0.9782</span>
+                </div>
+                <div class="panel-body" style="text-align: center;">
+                  <canvas id="rocCurveCanvas" style="width: 100%; max-width: 460px; height: auto; border-radius: 6px;"></canvas>
+                  <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.75rem;">
+                    Held-out test set performance against unseen GAN and Diffusion architectures.
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-panel">
+                <div class="panel-header-bar">
+                  <span class="panel-header-title">Training Dynamics (BCE Loss)</span>
+                  <span class="mono-data" style="color: #8AE3AF; font-size: 0.78rem; font-weight: 700;">Val Loss = 0.077</span>
+                </div>
+                <div class="panel-body" style="text-align: center;">
+                  <canvas id="lossDynamicsCanvas" style="width: 100%; max-width: 460px; height: auto; border-radius: 6px;"></canvas>
+                  <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.75rem;">
+                    Cosine annealing learning rate schedule across 25 fine-tuning epochs.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: CLI Evaluation Specification -->
+            <div class="card-panel">
+              <div class="panel-header-bar">
+                <span class="panel-header-title">CLI Evaluation Runner Specification</span>
+                <button class="btn btn-outline btn-sm" id="copyCliCommandBtn" onclick="copyCLICommand()">Copy Command</button>
+              </div>
+              <div class="panel-body">
+                <pre style="background: rgba(38, 30, 35, 0.85); border: 1px solid var(--border-subtle); padding: 1.2rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.82rem; color: var(--highlight-champagne); overflow-x: auto;">python inference_script.py \
+  --test_dir ./test/images/ \
+  --weights ./model_weights.pt \
+  --output predictions.csv</pre>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 6: FORENSIC REPORTS
+               =============================================================== -->
+          <div id="reportsTab" class="tab-pane">
+            <div class="card-panel">
+              <div class="panel-header-bar">
+                <div>
+                  <span class="panel-header-title">Generated Forensic Intelligence Dossiers</span>
+                  <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+                    Formal verification reports suitable for digital media chain-of-custody documentation.
+                  </p>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="openDashboardTab('scanner')">New Forensic Investigation</button>
+              </div>
+              <div class="table-responsive-wrapper" style="border: none;">
+                <table class="forensic-data-table">
+                  <thead>
+                    <tr>
+                      <th>Dossier Reference</th>
+                      <th>Investigation Target</th>
+                      <th>Forensic Conclusion</th>
+                      <th>Model Output</th>
+                      <th>Generated Date</th>
+                      <th>Dossier Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="reportsTableBody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ===============================================================
+               TAB 7: DOCUMENTATION & SPECIFICATIONS
+               =============================================================== -->
+          <div id="docsTab" class="tab-pane">
+            <div class="card-panel">
+              <div class="panel-header-bar">
+                <span class="panel-header-title">Platform Documentation &amp; Research Architecture</span>
+                <span class="status-badge neutral">IIIT Bangalore Hackathon</span>
+              </div>
+              <div class="panel-body" style="line-height: 1.7; font-size: 0.9rem; color: var(--text-secondary);">
+                <h4 style="color: var(--highlight-champagne); margin-bottom: 0.5rem;">System Overview</h4>
+                <p style="margin-bottom: 1.25rem;">
+                  DeepShield-X addresses the vulnerability of standard convolutional networks to out-of-distribution synthetic generative attacks. While spatial backbones can memorize training artifacts, frequency spectral decomposition exposes invariant generative fingerprints caused by transposed convolution and upsampling layers.
+                </p>
+
+                <h4 style="color: var(--highlight-champagne); margin-bottom: 0.5rem;">Dual-Stream Architecture</h4>
+                <p style="margin-bottom: 1.25rem;">
+                  1. <b>Spatial Stream:</b> ResNet-50 backbone fine-tuned to extract subtle boundary inconsistencies and facial landmark asymmetry.<br>
+                  2. <b>Frequency Stream:</b> SRM high-pass residual filter connected to a 2D Fast Fourier Transform (FFT) log-magnitude encoder.<br>
+                  3. <b>Cross-Attention Gating:</b> Dynamic modality weighting between spatial and spectral features prior to final classification.
+                </p>
+
+                <h4 style="color: var(--highlight-champagne); margin-bottom: 0.5rem;">Repository Deliverables</h4>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; font-size: 0.85rem;">
+                  <li><code>predictions.csv</code>: Exact submission format matching competition requirements.</li>
+                  <li><code>model_weights.pt</code>: Dual-stream model weights checkpoint (&lt; 5 GB limit).</li>
+                  <li><code>inference_script.py</code>: Official evaluator command-line runner.</li>
+                  <li><code>gradcam.py</code>: Interpretability module hooking into final convolutional layers.</li>
+                  <li><code>TECHNICAL_REPORT.md</code>: Complete mathematical formulation and ablation study.</li>
+                </ul>
+
+                <div style="display: flex; gap: 1rem;">
+                  <a href="TECHNICAL_REPORT.md" target="_blank" class="btn btn-secondary btn-sm">Read Technical Report</a>
+                  <a href="evaluation_metric.md" target="_blank" class="btn btn-outline btn-sm">Evaluation Metric Guide</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       FORMAL FORENSIC DOSSIER MODAL (PRINTABLE / EXPORTABLE)
+       ========================================================================= -->
+  <div class="report-modal-backdrop" id="dossierModal">
+    <div class="dossier-document" id="printableDossier">
+      <button class="dossier-close-btn" onclick="closeForensicDossier()" title="Close Dossier">✕</button>
+      
+      <div class="dossier-header">
+        <div>
+          <div class="dossier-title">FORENSIC MEDIA DOSSIER</div>
+          <div class="dossier-subtitle">DEEPSHIELD-X DIGITAL FORENSICS INTELLIGENCE PLATFORM</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #6B5560;">REF: <span id="dossierRefId">DSX-9942-A</span></div>
+          <div style="font-size: 0.72rem; color: #7A6973;" id="dossierTimestamp">2026-11-03 16:30 UTC</div>
+        </div>
+      </div>
+
+      <div class="dossier-verdict-box fake" id="dossierVerdictBox">
+        <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Primary Forensic Classification</div>
+        <div style="font-size: 1.4rem; font-weight: 800; margin: 0.2rem 0;" id="dossierVerdictTitle">SYNTHETIC MEDIA DETECTED (LABEL = 1)</div>
+        <div style="font-size: 0.85rem;" id="dossierVerdictDesc">Confidence P(Fake) = 0.9480. High-frequency spectral and spatial boundary seam anomalies detected.</div>
+      </div>
+
+      <div class="dossier-grid-two">
+        <div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">Target Media Identifier</div>
+            <div class="dossier-field-val mono" id="dossierTargetId">fake_face_001.jpg</div>
+          </div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">Analysis Model</div>
+            <div class="dossier-field-val mono">DeepShieldXNet-v2.4-dualstream</div>
+          </div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">Input Matrix Dimensions</div>
+            <div class="dossier-field-val mono">224 × 224 × 3 RGB</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">Spectral Anomaly Score</div>
+            <div class="dossier-field-val mono" id="dossierSpectralScore">88.7%</div>
+          </div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">Boundary Discontinuity Index</div>
+            <div class="dossier-field-val mono" id="dossierBoundaryScore">81.3%</div>
+          </div>
+          <div class="dossier-field">
+            <div class="dossier-field-label">High-Pass Residual Metric</div>
+            <div class="dossier-field-val mono" id="dossierNoiseScore">76.5%</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <div class="dossier-field-label">Investigative Observations</div>
+        <p style="font-size: 0.84rem; color: #32282E; line-height: 1.6; margin-top: 0.35rem;" id="dossierDetailedObservations">
+          Cross-frequency analysis identified a periodic grid pattern consistent with transposed convolutional upsampling commonly observed in generative adversarial networks (GANs) and latent diffusion models. Spatial Grad-CAM class activation confirmed significant attention concentration along the facial perimeter and mandibular boundary.
+        </p>
+      </div>
+
+      <div class="dossier-disclaimer">
+        <b>LEGAL &amp; FORENSIC DISCLAIMER:</b> This automated forensic intelligence report was generated by DeepShield-X Dual-Stream Neural Network. While optimized for benchmark deepfake detection (AUC 0.9782), predictions represent probabilistic statistical inferences and should be corroborated with manual forensic inspection prior to legal proceedings.
+      </div>
+
+      <div style="margin-top: 1.8rem; display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button class="btn btn-secondary btn-sm" onclick="window.print()">Print Dossier</button>
+        <button class="btn btn-primary btn-sm" onclick="downloadDossierText()">Export Text Record</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
